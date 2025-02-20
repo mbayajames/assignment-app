@@ -4,6 +4,7 @@ import { login } from "../auth";
 import "../styles/Login.css"; 
 
 const Login = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -11,8 +12,8 @@ const Login = () => {
   const navigate = useNavigate();
 
   const users = {
-    "admin@example.com": { password: "admin123", role: "admin" },
-    "student@example.com": { password: "student123", role: "student" },
+    "admin@example.com": { username: "AdminUser", password: "admin123", role: "admin" },
+    "student@example.com": { username: "StudentUser", password: "student123", role: "student" },
   };
 
   const handleLogin = (e) => {
@@ -29,6 +30,7 @@ const Login = () => {
     }
 
     if (users[email] && users[email].password === password) {
+      setUsername(users[email].username);
       login(users[email].role);
       navigate("/dashboard");
     } else {
@@ -44,6 +46,16 @@ const Login = () => {
         {error && <div className="error-message">{error}</div>}
 
         <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <label>Username:</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+
           <div className="input-group">
             <label>Email:</label>
             <input
