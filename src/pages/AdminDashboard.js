@@ -1,11 +1,12 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
+import "../styles/AdminDashboard.css";
 
 function AdminDashboard() {
   return (
-    <div className="d-flex">
+    <div className="admin-dashboard-container">
       <Sidebar />
-      <div className="flex-grow-1 p-4">
+      <div className="admin-dashboard-content">
         <h2>Admin Dashboard</h2>
         <p>Manage users and assignments here.</p>
       </div>
