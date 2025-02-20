@@ -1,1 +1,1 @@
-# assignment-app
+# assignments-app
