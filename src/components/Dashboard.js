@@ -1,11 +1,12 @@
 import React from 'react';
 import Sidebar from "./Sidebar";
+import "../styles/Dashboard.css";
 
 function Dashboard() {
   return (
-    <div className="d-flex">
+    <div className="dashboard-container">
         <Sidebar/>
-        <div className="flex-grow-1 p-4">
+        <div className="dashboard-content">
             <h2>Dashboard</h2>
             <p>Welcome to your role-based dashboard.</p>
         </div>
